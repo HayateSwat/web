@@ -38,6 +38,7 @@ function initialize() {
 		shape: shape,
 		position: new google.maps.LatLng(23.6762184,120.3442401)
 		});
+	
         
   	var shape = {
  
@@ -46,19 +47,29 @@ function initialize() {
  
 	};
 
-	var marker = new google.maps.Marker({
+	var markerb = new google.maps.Marker({
 		map: map,
 		shape: shape,
 		position: new google.maps.LatLng(23.6962184,120.3742401)	
 		});
+		
+	 google.maps.event.addListener(markerb, 'mouseover', function() {
+    infowindow.open(map,markerb);
+    });
+	google.maps.event.addListener(markerb, 'mouseout', function() {
+    infowindow.close();
+    });
+	
 	var contentString = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
         '<h2 id="firstHeading" class="firstHeading">This is</h2>'+
+		marker.getPosition()+
         '</div>';
 
      var infowindow = new google.maps.InfoWindow({
-        content: contentString
+        content: contentString,
+		position:marker.getPosition()
     });
 
     var marker = new google.maps.Marker({
