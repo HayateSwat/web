@@ -30,54 +30,44 @@ function initialize() {
   
   map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
  
- 
+	var markArray = new Array();
 	var markerA = new google.maps.Marker({
 		map: map,	
 		position: new google.maps.LatLng(23.6762184,120.3442401)
 		});
-	
-      google.maps.event.addListener(markerA, 'mouseover', function() {
-    infowindow.open(map,markerA);
-    });
-	google.maps.event.addListener(markerA, 'mouseout', function() {
-    infowindow.close();
-    });
-	
+
 	var markerB = new google.maps.Marker({
 		map: map,
 		position: new google.maps.LatLng(23.6962184,120.3742401)	
 		});
 		
-	 google.maps.event.addListener(markerB, 'mouseover', function() {
-    infowindow.open(map,markerB);
-    });
-	google.maps.event.addListener(markerB, 'mouseout', function() {
-    infowindow.close();
-    });
-	
-
     var markerC = new google.maps.Marker({
-        position: latlng,
+        position:  new google.maps.LatLng(23.7862184,120.542401),
         map: map,
         title:"Uluru (Ayers Rock)"
     });
+	
+	markArray[0]=markerA;
+	markArray[1]=markerB;
+	markArray[2]=markerC;
 
-    google.maps.event.addListener(markerC, 'mouseover', function() {
-    infowindow.open(map,markerC);
-    });
-	google.maps.event.addListener(markerC, 'mouseout', function() {
-    infowindow.close();
-    });
+	
+    google.maps.event.addListener(markArray[0], 'click', function(event) {
+		infowindow.setContent(event.latLng.lat()+" , "+event.latLng.lng());
+		infowindow.open(map,markArray[0]);
+		
+  });
+
+
 	
 	var contentString = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
         '<h2 id="firstHeading" class="firstHeading">This is</h2>'+
-		markerA.getPosition()+
         '</div>';
 
      var infowindow = new google.maps.InfoWindow({
-        content: contentString,
+        content: contentString
 		
     });
 	
@@ -90,7 +80,7 @@ function codeAddress() {
     if (status == google.maps.GeocoderStatus.OK) {
       map.setCenter(results[0].geometry.location);
 	  var lastMark;
-      var marker = new google.maps.Marker({
+      var mark = new google.maps.Marker({
           map: map,
           position: results[0].geometry.location
       });
@@ -105,7 +95,7 @@ function codeAddress() {
 google.maps.event.addDomListener(window, 'load', initialize);
 
     </script>
-
+</head>
   
   <body>
 	<div id="panel">
