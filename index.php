@@ -33,9 +33,9 @@ function initialize() {
 	
 }
 
+var markArray = new Array();
 
 function showMarker(){
-	var markArray = new Array();
 	var markerA = new google.maps.Marker({
 		map: map,	
 		position: new google.maps.LatLng(23.6762184,120.3442401)
@@ -66,7 +66,9 @@ function showMarker(){
 	markArray[2]=markerC;
 	markArray[3]=markerD;
 	markArray[4]=markerE;
-
+	
+	var contentString = '';
+    var infowindow = new google.maps.InfoWindow();
 	
 	for(var i in markArray){
 		google.maps.event.addListener(markArray[i], 'mouseover', function(event) {
@@ -83,19 +85,14 @@ function showMarker(){
 		});
 	}
 	
-	
-	var contentString = '';
-    var infowindow = new google.maps.InfoWindow();
 }
-
 
 function codeAddress() {
   var address = document.getElementById('address').value;
   geocoder.geocode( { 'address': address}, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
       map.setCenter(results[0].geometry.location);
-	  var lastMark;
-      var mark = new google.maps.Marker({
+      var newMark = new google.maps.Marker({
           map: map,
           position: results[0].geometry.location
       });
