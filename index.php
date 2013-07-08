@@ -48,23 +48,38 @@ function showMarker(){
 		
     var markerC = new google.maps.Marker({
         position:  new google.maps.LatLng(23.7862184,120.542401),
-        map: map,
-        title:"Uluru (Ayers Rock)"
+        map: map
+    });
+	
+	var markerD = new google.maps.Marker({
+        position:  new google.maps.LatLng(23.6262184,120.462401),
+        map: map
+    });
+	
+	var markerE = new google.maps.Marker({
+        position: new google.maps.LatLng(23.7162184,120.4201156),
+        map: map
     });
 	
 	markArray[0]=markerA;
 	markArray[1]=markerB;
 	markArray[2]=markerC;
+	markArray[3]=markerD;
+	markArray[4]=markerE;
 
-	try{
-	  for(var i in markArray){
-			google.maps.event.addListener(markArray[i], 'click', function(event) {
-				infowindow.setContent(event.latLng.lat()+" , "+event.latLng.lng());
-				infowindow.open(map,markArray[i]);
-			});
-		}
+	
+	for(var i in markArray){
+		google.maps.event.addListener(markArray[i], 'click', function(event) {
+			infowindow.setContent(event.latLng.lat()+" , "+event.latLng.lng());
+			for(var j in markArray){
+				if(event.latLng.equals(markArray[j].getPosition())){
+					i=j;
+					infowindow.open(map,markArray[i]);
+				}
+			}
+		});
 	}
-	catch(e){}
+	
 	
 	var contentString = '';
     var infowindow = new google.maps.InfoWindow();
