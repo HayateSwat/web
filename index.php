@@ -29,7 +29,12 @@ function initialize() {
   }
   
   map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
- 
+  showMarker();
+	
+}
+
+
+function showMarker(){
 	var markArray = new Array();
 	var markerA = new google.maps.Marker({
 		map: map,	
@@ -51,26 +56,18 @@ function initialize() {
 	markArray[1]=markerB;
 	markArray[2]=markerC;
 
+	try{
+	  for(var i in markArray){
+			google.maps.event.addListener(markArray[i], 'click', function(event) {
+				infowindow.setContent(event.latLng.lat()+" , "+event.latLng.lng());
+				infowindow.open(map,markArray[i]);
+			});
+		}
+	}
+	catch(e){}
 	
-    google.maps.event.addListener(markArray[0], 'click', function(event) {
-		infowindow.setContent(event.latLng.lat()+" , "+event.latLng.lng());
-		infowindow.open(map,markArray[0]);
-		
-  });
-
-
-	
-	var contentString = '<div id="content">'+
-        '<div id="siteNotice">'+
-        '</div>'+
-        '<h2 id="firstHeading" class="firstHeading">This is</h2>'+
-        '</div>';
-
-     var infowindow = new google.maps.InfoWindow({
-        content: contentString
-		
-    });
-	
+	var contentString = '';
+    var infowindow = new google.maps.InfoWindow();
 }
 
 
