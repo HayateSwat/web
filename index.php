@@ -69,7 +69,7 @@ function showMarker(){
 
 	
 	for(var i in markArray){
-		google.maps.event.addListener(markArray[i], 'click', function(event) {
+		google.maps.event.addListener(markArray[i], 'mouseover', function(event) {
 			infowindow.setContent(event.latLng.lat()+" , "+event.latLng.lng());
 			for(var j in markArray){
 				if(event.latLng.equals(markArray[j].getPosition())){
@@ -77,6 +77,9 @@ function showMarker(){
 					infowindow.open(map,markArray[i]);
 				}
 			}
+		});
+		google.maps.event.addListener(markArray[i], 'mouseout', function(event) {
+		infowindow.close();
 		});
 	}
 	
