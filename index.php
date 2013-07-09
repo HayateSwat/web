@@ -38,27 +38,32 @@ var markArray = new Array();
 function showMarker(){
 	var markerA = new google.maps.Marker({
 		map: map,	
-		position: new google.maps.LatLng(23.6762184,120.3442401)
+		position: new google.maps.LatLng(23.6762184,120.3442401),
+		icon: url='Icons/a.png'
 		});
 
 	var markerB = new google.maps.Marker({
 		map: map,
-		position: new google.maps.LatLng(23.6962184,120.3742401)	
+		position: new google.maps.LatLng(23.6962184,120.3742401),
+		icon: url='Icons/b.png'	
 		});
 		
     var markerC = new google.maps.Marker({
         position:  new google.maps.LatLng(23.7862184,120.542401),
-        map: map
+        map: map,
+		icon: url='Icons/c.png'
     });
 	
 	var markerD = new google.maps.Marker({
         position:  new google.maps.LatLng(23.6262184,120.462401),
-        map: map
+        map: map,
+		icon: url='Icons/d.png'
     });
 	
 	var markerE = new google.maps.Marker({
         position: new google.maps.LatLng(23.7162184,120.4201156),
-        map: map
+        map: map,
+		icon: url='Icons/e.png'
     });
 	
 	markArray[0]=markerA;
@@ -69,6 +74,7 @@ function showMarker(){
 	
 	var contentString = '';
     var infowindow = new google.maps.InfoWindow();
+	var tempIcon;
 	
 	for(var i in markArray){
 		google.maps.event.addListener(markArray[i], 'mouseover', function(event) {
@@ -77,13 +83,14 @@ function showMarker(){
 				if(event.latLng.equals(markArray[j].getPosition())){
 					i=j;
 					infowindow.open(map,markArray[i]);
+					tempIcon = markArray[i].getIcon();
 					markArray[i].setIcon('marker.png');
 				}
 			}
 		});
 		google.maps.event.addListener(markArray[i], 'mouseout', function() {
 		infowindow.close();
-		markArray[i].setIcon();
+		markArray[i].setIcon(tempIcon);
 		});
 	}
 	
