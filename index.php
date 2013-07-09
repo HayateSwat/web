@@ -80,9 +80,10 @@ function showMarker(){
 	function(event) {
 		for(var j in markArray){
 			if(event.latLng.equals(markArray[j].getPosition())){
+				i=j;
 				infowindow.setContent(event.latLng.lat()+" , "+event.latLng.lng()+"<"+j+">");
-				infowindow.open(map,markArray[j]);
-				tempIcon = markArray[j].getIcon();
+				infowindow.open(map,markArray[i]);
+				tempIcon = markArray[i].getIcon();
 				//markArray[j].setIcon('marker.png');
 				break;
 			}
