@@ -77,11 +77,13 @@ function showMarker(){
 				if(event.latLng.equals(markArray[j].getPosition())){
 					i=j;
 					infowindow.open(map,markArray[i]);
+					markArray[i].setIcon('marker.png');
 				}
 			}
 		});
-		google.maps.event.addListener(markArray[i], 'mouseout', function(event) {
+		google.maps.event.addListener(markArray[i], 'mouseout', function() {
 		infowindow.close();
+		markArray[i].setIcon();
 		});
 	}
 	
@@ -100,7 +102,6 @@ function codeAddress() {
       alert('Geocode was not successful for the following reason: ' + status);
     }
   });
-
 }
 
   
