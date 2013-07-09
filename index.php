@@ -76,19 +76,22 @@ function showMarker(){
     var infowindow = new google.maps.InfoWindow();
 	var tempIcon;
 	
-	for(var i in markArray){
-		google.maps.event.addListener(markArray[i], 'mouseover', function(event) {
-			infowindow.setContent(event.latLng.lat()+" , "+event.latLng.lng());
-			for(var j in markArray){
-				if(event.latLng.equals(markArray[j].getPosition())){
-					i=j;
-					infowindow.open(map,markArray[i]);
-					tempIcon = markArray[i].getIcon();
-					markArray[i].setIcon('marker.png');
-				}
+	var mousemovein = 
+	function(event) {
+		for(var j in markArray){
+			if(event.latLng.equals(markArray[j].getPosition())){
+				infowindow.setContent(event.latLng.lat()+" , "+event.latLng.lng()+"<"+j+">");
+				infowindow.open(map,markArray[j]);
+				tempIcon = markArray[j].getIcon();
+				//markArray[j].setIcon('marker.png');
+				break;
 			}
-		});
-		google.maps.event.addListener(markArray[i], 'mouseout', function() {
+		}
+	}
+	
+	for(var i in markArray){
+		google.maps.event.addListener(markArray[i],'mouseover', mousemovein);
+		google.maps.event.addListener(markArray[i],'mouseout', function() {
 		infowindow.close();
 		markArray[i].setIcon(tempIcon);
 		});
