@@ -1,7 +1,5 @@
-var geocoder;
 var map;
 function initialize() {
-  geocoder = new google.maps.Geocoder();
   var latlng = new google.maps.LatLng( 23.7162184,120.4242401);
   var mapOptions = {
     zoom: 11,
@@ -9,20 +7,21 @@ function initialize() {
     mapTypeId: google.maps.MapTypeId.ROADMAP
   }
   map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-  newPoint(0);
-  showMarker();
+  google.maps.event.addListenerOnce(map, 'idle', function(){
+    addPointToMap();
+});
 }
 
 var session = new Array();
 
-function newPoint(num){
+function newPoint(num,pLng,pLat,pContent){
 	session[num] = {
 		marker: new google.maps.Marker({
 				map:map,
-				position:new google.maps.LatLng(23.7162184,120.4242401),
+				position:new google.maps.LatLng(pLat,pLng),
 				icon:url='Icons/a.png'
 				}),
-		content:'<h2>This is Home</h2>'
+		content:pContent
 	}
 }
 
@@ -51,4 +50,6 @@ function showMarker(){
 	}
 	
 }
+
 google.maps.event.addDomListener(window, 'load', initialize);
+

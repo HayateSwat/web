@@ -14,12 +14,22 @@
 	 <link href="/maps/documentation/javascript/examples/default.css" rel="stylesheet">
      <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 	 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js">
-</script>
-<script src="my_jquery_functions.js"></script>
+	</script>
+	<script src="my_jquery_functions.js"></script>
+	<script src="show.js" >
+	</script>
 </head>
   
   <body>
     <div id="map-canvas"></div>
-	<script language="javascript 1.2" type="text/javascript" src="show.js" ></script>
+	<script>
+		//
+		function addPointToMap(){
+			newPoint(0,120.424,23.71,'Hello');
+			newPoint(1,120.428,23.71,"test");
+			showMarker();
+		}
+	 
+	</script>
   </body>
 </html>
