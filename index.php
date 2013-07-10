@@ -33,68 +33,58 @@ function initialize() {
 	
 }
 
-var markArray = new Array();
+//var markArray = new Array();
+//var contentString = new Array();
+var session = new Array();
 
-function showMarker(){
-	var markerA = new google.maps.Marker({
-		map: map,	
-		position: new google.maps.LatLng(23.6762184,120.3442401),
-		icon: url='Icons/a.png'
-		});
-
-	var markerB = new google.maps.Marker({
-		map: map,
-		position: new google.maps.LatLng(23.6962184,120.3742401),
-		icon: url='Icons/b.png'	
-		});
-		
-    var markerC = new google.maps.Marker({
-        position:  new google.maps.LatLng(23.7862184,120.542401),
-        map: map,
-		icon: url='Icons/c.png'
-    });
+function showMarker(){			
+	session[0]={
+		marker: new google.maps.Marker({
+				map: map,	
+				position: new google.maps.LatLng(23.6762184,120.3442401),
+				icon: url='Icons/a.png'
+				}),
+		content:'<h2>This is Home</h2>'
+		}
 	
-	var markerD = new google.maps.Marker({
-        position:  new google.maps.LatLng(23.6262184,120.462401),
-        map: map,
-		icon: url='Icons/d.png'
-    });
+	session[1]={
+		marker: new google.maps.Marker({
+				map: map,	
+				position: new google.maps.LatLng(23.7162184,120.4201156),
+				icon: url='Icons/e.png'
+				}),
+		content:'<h2>This is School</h2>'
+		}
 	
-	var markerE = new google.maps.Marker({
-        position: new google.maps.LatLng(23.7162184,120.4201156),
-        map: map,
-		icon: url='Icons/e.png'
-    });
+	session[2]={
+		marker: new google.maps.Marker({
+				map: map,	
+				position: new google.maps.LatLng(23.5762184,120.5142401),
+				icon: url='Icons/c.png'
+				}),
+		content:'<h2>This is Hotel</h2>'
+		}
 	
-	markArray[0]=markerA;
-	markArray[1]=markerB;
-	markArray[2]=markerC;
-	markArray[3]=markerD;
-	markArray[4]=markerE;
-	
-	var contentString = '';
-    var infowindow = new google.maps.InfoWindow();
+	var infowindow = new google.maps.InfoWindow();
 	var tempIcon;
-	
 	var mousemovein = 
 	function(event) {
-		for(var j in markArray){
-			if(event.latLng.equals(markArray[j].getPosition())){
+		for(var j in session){
+			if(event.latLng.equals(session[j].marker.getPosition())){
 				i=j;
-				infowindow.setContent(event.latLng.lat()+" , "+event.latLng.lng()+"<"+j+">");
-				infowindow.open(map,markArray[i]);
-				tempIcon = markArray[i].getIcon();
-				//markArray[j].setIcon('marker.png');
+				infowindow.setContent(session[i].content+event.latLng.toString());
+				infowindow.open(map,session[i].marker);
+				tempIcon = session[i].marker.getIcon();
 				break;
 			}
 		}
 	}
 	
-	for(var i in markArray){
-		google.maps.event.addListener(markArray[i],'mouseover', mousemovein);
-		google.maps.event.addListener(markArray[i],'mouseout', function() {
+	for(var i in session){
+		google.maps.event.addListener(session[i].marker,'mouseover', mousemovein);
+		google.maps.event.addListener(session[i].marker,'mouseout', function() {
 		infowindow.close();
-		markArray[i].setIcon(tempIcon);
+		session[i].marker.setIcon(tempIcon);
 		});
 	}
 	
