@@ -16,10 +16,10 @@
 	 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js">
 </script>
 <script src="my_jquery_functions.js"></script>
-<script language="javascript 1.2" type="text/javascript" src="show.js" ></script>
 </head>
   
   <body>
     <div id="map-canvas"></div>
+	<script language="javascript 1.2" type="text/javascript" src="show.js" ></script>
   </body>
 </html>

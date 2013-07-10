@@ -8,16 +8,25 @@ function initialize() {
     center: latlng,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   }
-  
   map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+  newPoint(0);
   showMarker();
-	
 }
 
 var session = new Array();
 
+function newPoint(num){
+	session[num] = {
+		marker: new google.maps.Marker({
+				map:map,
+				position:new google.maps.LatLng(23.7162184,120.4242401),
+				icon:url='Icons/a.png'
+				}),
+		content:'<h2>This is Home</h2>'
+	}
+}
+
 function showMarker(){		
-		
 	var infowindow = new google.maps.InfoWindow();
 	var tempIcon;
 	var mousemovein = 
