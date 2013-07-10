@@ -16,7 +16,8 @@ function initialize() {
 
 var session = new Array();
 
-function showMarker(){			
+function showMarker(){		
+		
 	var infowindow = new google.maps.InfoWindow();
 	var tempIcon;
 	var mousemovein = 

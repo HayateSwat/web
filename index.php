@@ -29,8 +29,7 @@ function initialize() {
   }
   
   map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-  showMarker();
-	
+  showMarker();	
 }
 
 //var markArray = new Array();
@@ -45,7 +44,7 @@ function showMarker(){
 				icon: url='Icons/a.png'
 				}),
 		content:'<h2>This is Home</h2>'
-		}
+		};
 	
 	session[1]={
 		marker: new google.maps.Marker({
@@ -54,7 +53,7 @@ function showMarker(){
 				icon: url='Icons/e.png'
 				}),
 		content:'<h2>This is School</h2>'
-		}
+		};
 	
 	session[2]={
 		marker: new google.maps.Marker({
@@ -63,7 +62,7 @@ function showMarker(){
 				icon: url='Icons/c.png'
 				}),
 		content:'<h2>This is Hotel</h2>'
-		}
+		};
 	
 	var infowindow = new google.maps.InfoWindow();
 	var tempIcon;
@@ -90,33 +89,12 @@ function showMarker(){
 	
 }
 
-function codeAddress() {
-  var address = document.getElementById('address').value;
-  geocoder.geocode( { 'address': address}, function(results, status) {
-    if (status == google.maps.GeocoderStatus.OK) {
-      map.setCenter(results[0].geometry.location);
-      var newMark = new google.maps.Marker({
-          map: map,
-          position: results[0].geometry.location
-      });
-    } else {
-      alert('Geocode was not successful for the following reason: ' + status);
-    }
-  });
-}
-
-  
 google.maps.event.addDomListener(window, 'load', initialize);
 
     </script>
 </head>
   
   <body>
-	<div id="panel">
-      <input id="address" type="textbox" value="">
-      <input type="button" value="Geocode" onclick="codeAddress()"> 	  
-    </div>
-	
     <div id="map-canvas"></div>
   </body>
 </html>
