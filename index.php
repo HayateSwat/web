@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
   <head>
     <title>Simple Map</title>
@@ -16,7 +16,7 @@
 	 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js">
 	</script>
 	<script src="my_jquery_functions.js"></script>
-	<script src="show.js" >
+	<script src="mapAPI.js" >
 	</script>
 </head>
   
@@ -26,7 +26,7 @@
 		//
 		function addPointToMap(){
 			newPoint(0,120.424,23.71,'Hello');
-			newPoint(1,120.428,23.71,"test");
+			newPoint(1,120.448,23.71,"test");
 			showMarker();
 		}
 	 
