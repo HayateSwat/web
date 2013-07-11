@@ -4,16 +4,26 @@ function initialize() {
   var mapOptions = {
     zoom: 11,
     center: latlng,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+	streetViewControl:false,
+	zoomControl:false,
+	panControl:false
   }
   map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
   google.maps.event.addListenerOnce(map, 'idle', function(){
     addPointToMap();
   });
+  MouseLocat();
 }
 
 var session = new Array();
 var infowindow = new google.maps.InfoWindow();
+
+function MouseLocat(){
+	google.maps.event.addListener(map,'click', function(event){
+	$(":textbox")=event.latLng.toString();
+	});
+}
 
 function newPoint(num,pLng,pLat,pContent,pIcon){
 	session[num] = {
