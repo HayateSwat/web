@@ -16,7 +16,7 @@
 	 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js">
 	</script>
 	<script src="my_jquery_functions.js"></script>
-	<script src="mapAPI.js" >
+	<script src="show.js" >
 	</script>
 </head>
   
