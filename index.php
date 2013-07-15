@@ -9,7 +9,7 @@
         margin: 0;
         padding: 0;
         height: 100%;
-      }
+      }	
     </style>
 	 <link href="/maps/documentation/javascript/examples/default.css" rel="stylesheet">
      <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
@@ -21,6 +21,10 @@
 </head>
   
   <body>
+	<div>
+		<input id="address" type="text" value="">
+		<input id="address2" type="text" value="">
+	</div>
     <div id="map-canvas"></div>
 	<script>
 		//
@@ -29,7 +33,6 @@
 			newPoint(1,120.448,23.71,"test");
 			showMarker();
 		}
-	 
 	</script>
   </body>
 </html>
