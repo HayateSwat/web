@@ -13,17 +13,11 @@ function initialize() {
   google.maps.event.addListenerOnce(map, 'idle', function(){
     addPointToMap();
   });
-  MouseLocat();
 }
 
 var session = new Array();
 var infowindow = new google.maps.InfoWindow();
 
-function MouseLocat(){
-	google.maps.event.addListener(map,'click', function(event){
-	$(":textbox")=event.latLng.toString();
-	});
-}
 
 function newPoint(num,pLng,pLat,pContent,pIcon){
 	session[num] = {

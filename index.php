@@ -21,9 +21,6 @@
 </head>
   
   <body>
-	<div id="panel">
-	<input id="address" type="textbox" value="">
-	</div>
     <div id="map-canvas"></div>
 	<script>
 		//
