@@ -24,6 +24,7 @@
 	<div>
 		<input id="address" type="text" value="">
 		<input id="address2" type="text" value="">
+		<input id="KeyID" type="text" value="">
 	</div>
     <div id="map-canvas"></div>
 	<script>

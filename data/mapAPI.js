@@ -57,4 +57,3 @@ function showMarker(){
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
-

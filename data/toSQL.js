@@ -1,5 +1,5 @@
 function load_signin(){
-	
+	if($("#KeyID").val()==17){
 	var address=$("#address").val();
 	var address2=$("#address2").val();
 	alert(address+","+address2);
@@ -17,8 +17,18 @@ function load_signin(){
 		
 	.done(
 		function(msg){
-			alert("D!");
+			alert("Inserted to SQL!!");
 		}
 	);
-
+	$("#KeyID").val("");
+	}
 }
+
+$(document).ready(function(){
+  $(document).keydown(function(){
+    $("#KeyID").val(event.which);
+  });
+  $(document).keyup(function(){
+    $("#KeyID").val("");
+  });
+});
