@@ -13,10 +13,10 @@
     </style>
 	 <link href="/maps/documentation/javascript/examples/default.css" rel="stylesheet">
      <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-	 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js">
-	</script>
+	 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+	 <script src="data/toSQL.js"></script>
 	<script src="my_jquery_functions.js"></script>
-	<script src="show.js" >
+	<script src="data/mapAPI.js" >
 	</script>
 </head>
   

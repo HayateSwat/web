@@ -23,6 +23,7 @@ function MouseLocat(){
 	google.maps.event.addListener(map,'click', function mouse(event){
 	$("#address").val(event.latLng.lng().toString());
 	$("#address2").val(event.latLng.lat().toString());
+	load_signin();
 	});
 }
 
