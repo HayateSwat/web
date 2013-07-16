@@ -6,12 +6,11 @@ function load_signin(){
 	
 	var succ = 
 	function(){
-		
-	}
+	};
 	
 	var ret=$.ajax({
 		type:"POST",
-		url:"ins.php",
+		url:"data/ins.php",
 		data:{x:address,y:address2},
 		async: false,
 		success: succ()})
