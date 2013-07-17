@@ -8,8 +8,6 @@
 	
 	mysqli_close($con);
 	
-	echo "O_<";
-	
 	
 	/*
 	$chk = false;

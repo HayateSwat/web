@@ -11,21 +11,26 @@ function initialize() {
   }
   map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
   google.maps.event.addListenerOnce(map, 'idle', function(){
-    addPointToMap();
+    addPointToMap(); 
+	MouseLocat();
   });
-  MouseLocat();
 }
+
+//=========	User set Point
+function setTMark(event){
+	var tMark = new google.maps.Marker({
+		map:map,
+		position:event.latLng,
+		icon:url='Icons/marker.png'
+	});
+	google.maps.event.addListener(tMark,'dblclick', function(){
+	tMark.setVisible(false);
+	});
+}
+//==========
 
 var session = new Array();
 var infowindow = new google.maps.InfoWindow();
-
-function MouseLocat(){
-	google.maps.event.addListener(map,'click', function mouse(event){
-	$("#address").val(event.latLng.lng().toString());
-	$("#address2").val(event.latLng.lat().toString());
-	load_signin();
-	});
-}
 
 function newPoint(num,pLng,pLat,pContent,pIcon){
 	session[num] = {
@@ -42,13 +47,13 @@ function showMarker(){
 	var mousemovein = 
 	function(event) {
 		for(var j in session){
-			if(event.latLng.equals(session[j].marker.getPosition())){
-				i=j;
-				infowindow.setContent(session[i].content);
-				infowindow.open(map,session[i].marker);
-				break;
-			}
+		if(event.latLng.equals(session[j].marker.getPosition())){
+		i=j;
+		infowindow.setContent(session[i].content);
+		infowindow.open(map,session[i].marker);
+		break;
 		}
+	}
 	}
 
 	for(var i in session){

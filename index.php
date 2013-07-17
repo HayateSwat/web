@@ -29,6 +29,15 @@
     <div id="map-canvas"></div>
 	<script>
 		//
+		function MouseLocat(){
+			google.maps.event.addListener(map,'click', function mouse(event){
+			$("#address").val(event.latLng.lng().toString());
+			$("#address2").val(event.latLng.lat().toString());
+			setTMark(event);
+			loadSignin();
+			});
+		}
+		
 		function addPointToMap(){
 			newPoint(0,120.424,23.71,'Hello');
 			newPoint(1,120.448,23.71,"test");

@@ -1,12 +1,11 @@
-function load_signin(){
+//===== Ctrl + LeftClick = set Point to SQL
+function loadSignin(){
 	if($("#KeyID").val()==17){
 	var address=$("#address").val();
 	var address2=$("#address2").val();
 	alert(address+","+address2);
 	
-	var succ = 
-	function(){
-	};
+	var succ = function(){};
 	
 	var ret=$.ajax({
 		type:"POST",
@@ -17,12 +16,13 @@ function load_signin(){
 		
 	.done(
 		function(msg){
-			alert("Inserted to SQL!!");
+		alert("Inserted to SQL!!");
 		}
 	);
 	$("#KeyID").val("");
 	}
-}
+}		
+ //==========
 
 $(document).ready(function(){
   $(document).keydown(function(){
