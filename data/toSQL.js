@@ -1,6 +1,5 @@
-//===== Ctrl + LeftClick = set Point to SQL
+//=====rightClick = set Point to SQL
 function loadSignin(){
-	if($("#KeyID").val()==17){
 	var address=$("#address").val();
 	var address2=$("#address2").val();
 	alert(address+","+address2);
@@ -19,12 +18,10 @@ function loadSignin(){
 		alert("Inserted to SQL!!");
 		}
 	);
-	$("#KeyID").val("");
-	}
 }		
  //==========
 
-$(document).ready(function(){
+/*$(document).ready(function(){
   $(document).keydown(function(){
     $("#KeyID").val(event.which);
   });
@@ -32,3 +29,4 @@ $(document).ready(function(){
     $("#KeyID").val("");
   });
 });
+*/

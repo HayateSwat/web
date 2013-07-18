@@ -23,6 +23,9 @@ function setTMark(event){
 		position:event.latLng,
 		icon:url='Icons/marker.png'
 	});
+	google.maps.event.addListener(tMark,'rightclick', function(){
+	loadSignin();
+	});
 	google.maps.event.addListener(tMark,'dblclick', function(){
 	tMark.setVisible(false);
 	});
