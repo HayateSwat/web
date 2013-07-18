@@ -24,9 +24,10 @@
 	<input id="address2" type="text" value="">
 	<input id="confirm" type="button" value="確定標記" onclick="loadSignin()">
 	</div>
-	<div id="map-canvas"></div>
+	<div id="map-canvas" onload="";></div>
 	<script>
 	//
+	//google.maps.event.addDomListener(window, 'load', initialize);
 	function MouseLocat(){
 	google.maps.event.addListener(map,'rightclick', function mouse(event){
 	$("#address").val(event.latLng.lng().toString());
