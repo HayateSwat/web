@@ -21,10 +21,7 @@ function setTMark(event){
 	var tMark = new google.maps.Marker({
 		map:map,
 		position:event.latLng,
-		icon:url='Icons/marker.png'
-	});
-	google.maps.event.addListener(tMark,'rightclick', function(){
-	loadSignin();
+		icon:url='assets/img/marker.png'
 	});
 	google.maps.event.addListener(tMark,'dblclick', function(){
 	tMark.setVisible(false);
@@ -58,7 +55,6 @@ function showMarker(){
 		}
 	}
 	}
-
 	for(var i in session){
 		google.maps.event.addListener(session[i].marker,'click', mousemovein);
 	}

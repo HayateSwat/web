@@ -1,4 +1,3 @@
-//=====rightClick = set Point to SQL
 function loadSignin(){
 	var address=$("#address").val();
 	var address2=$("#address2").val();
@@ -8,7 +7,7 @@ function loadSignin(){
 	
 	var ret=$.ajax({
 		type:"POST",
-		url:"data/ins.php",
+		url:"ins.php",
 		data:{x:address,y:address2},
 		async: false,
 		success: succ()})
@@ -19,14 +18,3 @@ function loadSignin(){
 		}
 	);
 }		
- //==========
-
-/*$(document).ready(function(){
-  $(document).keydown(function(){
-    $("#KeyID").val(event.which);
-  });
-  $(document).keyup(function(){
-    $("#KeyID").val("");
-  });
-});
-*/
