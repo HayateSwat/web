@@ -25,9 +25,7 @@
 	</div>
 	<div id="map-canvas"></div>
 	<script>
-	//
 	$("#man-canvas").load(initialize());
-	//$("body").add("button");
 	
 	function MouseLocat(){
 		google.maps.event.addListener(map,'rightclick', function mouse(event){
