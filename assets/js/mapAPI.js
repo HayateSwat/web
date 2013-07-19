@@ -1,3 +1,5 @@
+$('head').append('<script src = "assets/js/loadPoint.js"></script>');
+$("head").append("<script src='assets/js/userSetPoint.js'></script>");
 var map;
 function initialize() {
   var latlng = new google.maps.LatLng( 23.7162184,120.4242401);

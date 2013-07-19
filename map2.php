@@ -14,9 +14,7 @@
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 	<script src="assets/js/mapAPI.js" ></script>
-	<script src="assets/js/toSQL.js"></script>
-	<script src="assets/js/userSetPoint.js"></script>
-	<script src="assets/js/loadPoint.js"></script>
+	
 </head>
   
 <body>
@@ -29,6 +27,8 @@
 	<script>
 	//
 	$("#man-canvas").load(initialize());
+	//$("body").add("button");
+	
 	function MouseLocat(){
 		google.maps.event.addListener(map,'rightclick', function mouse(event){
 		$("#address").val(event.latLng.lng().toString());
