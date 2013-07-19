@@ -23,7 +23,7 @@ function showMarker(){
 		infowindow.open(map,session[i].marker);
 		break;
 		}
-	}
+		}
 	}
 	for(var i in session){
 		google.maps.event.addListener(session[i].marker,'click', mousemovein);

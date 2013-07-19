@@ -14,7 +14,7 @@
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 	<script src="assets/js/mapAPI.js" ></script>
-	
+	<script src='assets/js/userSetPoint.js'></script>
 </head>
   
 <body>
@@ -26,7 +26,6 @@
 	<div id="map-canvas"></div>
 	<script>
 	$("#man-canvas").load(initialize());
-	
 	function MouseLocat(){
 		google.maps.event.addListener(map,'rightclick', function mouse(event){
 		$("#address").val(event.latLng.lng().toString());

@@ -1,4 +1,3 @@
-$("head").append("<script src='assets/js/toSQL.js'></script>");
 //=========	User set Point
 function setTMark(event){
 	var tMark = new google.maps.Marker({
@@ -10,3 +9,4 @@ function setTMark(event){
 	tMark.setVisible(false);
 	});
 }
+$("head").append("<script src='assets/js/toSQL.js'></script>");
